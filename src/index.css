@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-block-size: 100vh;
+  block-size: 100%;
+  inline-size: 100%;
+  background: hsl(180, 29%, 50%) url(/images/bg-header-mobile.svg);
+  background-size: 100% 156px;
+  background-repeat: no-repeat;
+  font-size: 15px;
+  font-family: "League Spartan", "Roboto", sans-serif;
+}
+
+.debugger {
+  outline: 1px solid blue;
+}
+
+.debugger-all > * {
+  outline: 1px solid blue;
+}
+
+.details > div {
+  @apply pl-[10px] relative;
+}
+
+.details > div:nth-child(1) {
+  @apply pl-0;
+}
+
+.details > div:not(:nth-child(1))::before {
+  content: "";
+  @apply inline-block w-[5px] h-[5px] bg-dark-grayish-cyan rounded-full absolute -left-[2.5px] top-[8.5px];
+}
+
+.company-avatar img {
+  @apply w-[48px] h-[48px];
+}
+
+@media (min-width: 768px) {
+  body {
+    background: hsl(180, 29%, 50%) url(/images/bg-header-desktop.svg);
+  }
+
+  .divider {
+    @apply hidden;
+  }
+
+  .company-avatar {
+    @apply relative transform-none;
+  }
+
+  .company-avatar img {
+    @apply w-[88px] h-[88px];
+  }
+
+  .company-card {
+    @apply flex items-center gap-[21px];
+  }
+
+  .company-tags {
+    @apply justify-end;
+  }
+}
